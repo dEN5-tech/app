@@ -1,0 +1,21 @@
+version: '3'
+services:
+  redis:
+    image: redis:latest
+    command: redis-server --bind 0.0.0.0 --appendonly yes
+    hostname: bc2c0d764bb2
+    mac_address: 02:42:ac:11:00:02
+    environment:
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - REDISBLOOM_ARGS=
+      - REDISEARCH_ARGS=
+      - REDISJSON_ARGS=
+      - REDISTIMESERIES_ARGS=
+      - REDISGRAPH_ARGS=
+      - REDIS_ARGS=
+    labels:
+      - org.opencontainers.image.ref.name=ubuntu
+      - org.opencontainers.image.version=20.04
+    runtime: runc
+    ports:
+      - '6379:6379'
